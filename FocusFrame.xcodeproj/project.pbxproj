@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A866FA132D3B175200D2EEB4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A866FA122D3B174900D2EEB4 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A8AA441D2D38B93600738D81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A866FA122D3B174900D2EEB4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A8AA440B2D38B93500738D81 /* FocusFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8AA441C2D38B93600738D81 /* FocusFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8AA44262D38B93600738D81 /* FocusFrameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusFrameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +80,7 @@
 		A8AA44022D38B93500738D81 = {
 			isa = PBXGroup;
 			children = (
+				A866FA122D3B174900D2EEB4 /* .gitignore */,
 				A8AA440D2D38B93500738D81 /* FocusFrame */,
 				A8AA441F2D38B93600738D81 /* FocusFrameTests */,
 				A8AA44292D38B93600738D81 /* FocusFrameUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A866FA132D3B175200D2EEB4 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
