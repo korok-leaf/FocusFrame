@@ -2,8 +2,7 @@ import sqlite3
 import os
 from datetime import datetime, timedelta, timezone
 import pytz
-
-duration = 2400 # 40 minute intervals
+import random
 
 # convert the mac absolute time into
 def get_time_mac(t):
@@ -26,7 +25,7 @@ def get_time_mac(t):
 
 
 # rows = (start_time, end_time, name)
-def process_rows(rows):
+def process_rows(rows, duration):
     
     # process logic
     # for every 40 min intervals we select the app that has been used the largest amount of time
@@ -63,10 +62,12 @@ def get_screen_time_data(start_time, end_time):
     db_path = os.path.expanduser("~/Library/Application Support/Knowledge/KnowledgeC.db")
     
     connect = None
+
+    duration = 2400 # 40 minute intervals
     
     if not os.path.exists(db_path):
         print("does not exist")
-        return;
+        return
     
     try:
         connect = sqlite3.connect(db_path)
@@ -95,13 +96,16 @@ def get_screen_time_data(start_time, end_time):
             """,(start, end))
             
             rows = cursor.fetchall()
+
             
-            most_used_app = process_rows(rows)
+            
+            most_used_app = process_rows(rows, end-start)
             time_info = get_time_mac(start)
             processed.append((most_used_app, time_info))
-            
-            start += duration
-            end += duration
+
+            variation = random.randint(0, 1200) # 0-20 minutes
+            start += duration - variation
+            end += duration - variation
             
             if start >= end_time: #set later to see if rows is empty
                 break
