@@ -64,6 +64,7 @@ def get_screen_time_data(start_time, end_time):
     connect = None
 
     duration = 2400 # 40 minute intervals
+    processed = []
     
     if not os.path.exists(db_path):
         print("does not exist")
@@ -73,7 +74,6 @@ def get_screen_time_data(start_time, end_time):
         connect = sqlite3.connect(db_path)
         cursor = connect.cursor()
         
-        processed = []
         
         start = start_time
         end = start_time + duration
@@ -109,13 +109,13 @@ def get_screen_time_data(start_time, end_time):
             
             if start >= end_time: #set later to see if rows is empty
                 break
-        return processed
         
     
     except sqlite3.Error as e:
         print(f"Database error: {e}")
     finally:
         connect.close()
+    return processed
 
 #get_screen_time_data(758837705, 758869734)
 #print("-----------------------")
