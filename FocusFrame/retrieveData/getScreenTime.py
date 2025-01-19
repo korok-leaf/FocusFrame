@@ -109,8 +109,7 @@ def get_screen_time_data(start_time, end_time):
             
             if start >= end_time: #set later to see if rows is empty
                 break
-        for p in processed:
-            print(p)
+        return processed
         
     
     except sqlite3.Error as e:
@@ -118,7 +117,7 @@ def get_screen_time_data(start_time, end_time):
     finally:
         connect.close()
 
-get_screen_time_data(758837705, 758869734)
-print("-----------------------")
+#get_screen_time_data(758837705, 758869734)
+#print("-----------------------")
 #get_screen_time_data(758850564, 0)
-print("done")
+#print("done")
