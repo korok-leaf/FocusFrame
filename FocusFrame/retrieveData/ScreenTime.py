@@ -1,3 +1,6 @@
+# this file is getAppName and getScreenTime file combined into a class
+
+
 import sqlite3
 import os
 from datetime import datetime, timedelta, timezone
@@ -157,8 +160,8 @@ class ScreenTime:
 
 
 # testing purposes
-test = ScreenTime(758700000, 758990000)
+# test = ScreenTime(758700000, 758990000)
 
-a = test.get_screen_time_data()
-#print(a)
-print(test.get_app_names())
+# a = test.get_screen_time_data()
+# print(a)
+#print(test.get_app_names())
