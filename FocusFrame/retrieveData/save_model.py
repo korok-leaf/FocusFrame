@@ -9,6 +9,9 @@ from getScreenTime import get_screen_time_data
 from getAppName import get_app_name
 import os
 
+
+
+
 def convertNp(data, apps):
     # ...code from prototype...
     len_data = len(data)
@@ -30,7 +33,7 @@ def convertNp(data, apps):
             Y_test[i] = 1
         else:
             ind = apps.index(y)
-            Y_test[i] = ind/len_apps
+            Y_test[i] = ind
     return X_test, Y_test
 
 def build_model():
