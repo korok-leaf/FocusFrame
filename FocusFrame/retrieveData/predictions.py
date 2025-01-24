@@ -20,25 +20,30 @@ from save_model import make_new_model, convertNp, evaluate_model
 model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'FocusFrameModel.keras')
 model = tf.keras.models.load_model(model_path)
     
-testing_data_x = get_screen_time_data(758700000, 758990000)
-testing_data_y = get_app_name(758700000, 758990000)
-testing_x, testing_y = convertNp(testing_data_x, testing_data_y)
+# testing_data_x = get_screen_time_data(758700000, 758990000)
+# testing_data_y = get_app_name(758700000, 758990000)
+# testing_x, testing_y = convertNp(testing_data_x, testing_data_y)
 
-test_loss, test_acc = evaluate_model(model, testing_x, testing_y)
-print("test accuracy:", test_acc)
-#print(testing_x)
+# test_loss, test_acc = evaluate_model(model, testing_x, testing_y)
+# print("test accuracy:", test_acc)
+# #print(testing_x)
 
-p = model.predict(testing_x)
-print(np.argmax(p[0]))
-print(p[0])
+# p = model.predict(testing_x)
+# print(np.argmax(p[0]))
+# print(p[0])
 
 # individual predict
 
-d = get_time_mac(7792799990)
-a, b, c, d = d[1]/12, d[2]/24, d[3]/60, d[5]/6
-print(str(a) + " " + str(b) + " " + str(c) + " " + str(d))
 
-predict = model.predict(np.array([[a, b, c, d]]))
-index = np.argmax(predict)
+def preditInd(t):
+    d = get_time_mac(t)
+    a, b, c= d[1]/12, d[2]/24, d[5]/6
+    print(str(a) + " " + str(b) + " " + str(c) + " " + str(d))
+
+    predict = model.predict(np.array([[a, b, c]]))
+    index = np.argmax(predict)
+    return index
 #print(index)
 #print(testing_data_y[index])
+
+print(preditInd(7792799990))
